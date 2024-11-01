@@ -1,11 +1,11 @@
 public final class Number{
 
-    public static double real;
-    public static double imaginary;
+    public double real = 0.0;
+    public double imaginary = 0.0;
 
     public Number(double real, double imaginary) {
-        Number.real = real;
-        Number.imaginary = imaginary;
+        this.real = real;
+        this.imaginary = imaginary;
 
     }
     public double getReal(){
@@ -15,10 +15,10 @@ public final class Number{
         return imaginary;
     }
     public void setReal(double real){
-        Number.real = real;
+        this.real = real;
     }
     public void setImaginary(double imaginary){
-        Number.imaginary = imaginary;
+        this.imaginary = imaginary;
     }
 
 }

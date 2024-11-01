@@ -1,5 +1,6 @@
-import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Calculator {
-    public static int test = 0;
+   static ArrayList<Number> number = new ArrayList<Number>();
+   static ArrayList<String> operator = new ArrayList<String>();
 }
