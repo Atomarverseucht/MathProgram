@@ -1,3 +1,5 @@
+package MathProgram;
+
 import java.util.ArrayList;
 
 // Store numbers and operators in two separate ArrayLists<>

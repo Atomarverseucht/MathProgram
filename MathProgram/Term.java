@@ -1,9 +1,11 @@
+package MathProgram;
+
 public final class Term{
 
    public static String term = UserInterface.operator;
 
-    public Number Term(Number n1, Number n2){
-        Number result = new Number(0, 0);
+    public MathProgram.Number Term(MathProgram.Number n1, MathProgram.Number n2){
+        MathProgram.Number result = new Number(0, 0);
         switch(term) { 
 
             case "+":

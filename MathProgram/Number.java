@@ -1,3 +1,5 @@
+package MathProgram;
+
 public final class Number{
 
     public double real = 0.0;

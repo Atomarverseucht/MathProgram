@@ -1,4 +1,4 @@
-//package MathProgram;
+package MathProgram;
 
 import java.util.Scanner;
 
@@ -21,7 +21,7 @@ public final class UserInterface {
      */
     public static void main(String[] args) {
 
-        Number number = new Number(0,0);
+        MathProgram.Number number = new Number(0,0);
         // Scans in the user written complex numbers and the term operator
         // to calculate them and print them out
         System.out.println("\nComplex Numbers: a + ib");
