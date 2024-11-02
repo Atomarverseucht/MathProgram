@@ -2,12 +2,9 @@ package MathProgram;
 
 public final class Term{
 
-   public static String term = UserInterface.operator;
-
-    public MathProgram.Number Term(MathProgram.Number n1, MathProgram.Number n2){
+    public MathProgram.Number Operation(MathProgram.Number n1, MathProgram.Number n2, String operator){
         MathProgram.Number result = new Number(0, 0);
-        switch(term) { 
-
+        switch(operator) { 
             case "+":
                 result.real = n1.real + n2.real;
                 result.imaginary = n1.imaginary + n2.imaginary;

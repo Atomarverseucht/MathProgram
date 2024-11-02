@@ -23,5 +23,4 @@ public final class Number{
     public void setImaginary(double imaginary){
         this.imaginary = imaginary;
     }
-
 }
