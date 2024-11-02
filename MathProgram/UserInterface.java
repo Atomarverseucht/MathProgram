@@ -35,9 +35,6 @@ public final class UserInterface {
         Calculator.number.add(number);
         Calculator.operator.add(operator);
 
-        // TODO: Find an elegant way to display imaginary numbers because of i being a char
-        // TODO and imaginary being a double, use i or a library which puts i into a complex
-        // TODO: number or implement it ourselves.
         // System.out.println("The result is: " + numbers[0].real + term + numbers[0].imaginary + "i");
 
     }
