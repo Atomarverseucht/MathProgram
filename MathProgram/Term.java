@@ -10,7 +10,7 @@ public final class Term{
                 result.imaginary = n1.imaginary + n2.imaginary;
                 break;
             case "-":
-                result.real = n1.real - n2.imaginary;
+                result.real = n1.real - n2.real;
                 result.imaginary = n1.imaginary - n2.imaginary;
                 break;
             case "*":
