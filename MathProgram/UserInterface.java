@@ -3,6 +3,8 @@ package MathProgram;
 
 import java.util.Scanner;
 
+import javax.jws.soap.SOAPBinding.Use;
+
 /**
  * MathProgram should calculate mathematical terms (accepted complex numbers), today it's only showing the numbers in the cartesian form.
  * @author Atom
@@ -11,7 +13,6 @@ import java.util.Scanner;
  */
 public final class UserInterface {
     private UserInterface() { }
-
     static String operator = "";
 
     private static final Scanner INPUT = new Scanner(System.in);
@@ -28,18 +29,17 @@ public final class UserInterface {
         Calculator.operator.add("+");
         System.out.println("\nComplex Numbers: a + ib \n End Input with wrong input for operators");
         System.out.println("Please enter in the real part of the first number: ");
-        while (INPUT.hasNextInt()) {
-            number.real = INPUT.nextDouble();
-    	    System.out.println("Please put in the imaginary part: ");
-            number.imaginary = INPUT.nextDouble();
+        while (INPUT.hasNext()) {
+            number.real = UserInterface.inputDouble();
+            System.out.println("Please put in the imaginary part: ");
+            number.imaginary = UserInterface.inputDouble();
             System.out.println("Please put in a term operator: ");
-            operator = INPUT.next();
+            operator = INPUT.next();afdsvgaavf
             Calculator.real.add(number.real);
             Calculator.imaginary.add(number.imaginary);
             if(!UserInterface.checkOperator(operator)){
                 break;
             }
-            
             Calculator.operator.add(operator); ++count;
             System.out.println("Please enter in the real part of the " + count + ". number: ");
         }
@@ -64,5 +64,16 @@ public final class UserInterface {
             }
         }
         return allowed;
+    }
+    static Double inputDouble(){
+        String value = INPUT.next();
+        try {
+            Double _value = Double.parseDouble(value);
+            return _value;
+            // Yes!  An integer.
+        } catch (NumberFormatException nfe) {
+            System.out.println("Please give me a double value (example: 0.0 or 0)");
+            return inputDouble();// Not an integer
+        }
     }
 }
