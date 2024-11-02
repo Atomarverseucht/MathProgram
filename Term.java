@@ -1,13 +1,8 @@
-import java.util.Scanner;
-
 public final class Term{
 
-   public static String term;
-    Scanner INPUT = new Scanner(System.in);
-
-    public Number Term(Number n1, Number n2){
+    public Number Operation(Number n1, Number n2, String operator){
         Number result = new Number(0, 0);
-        switch(term) { 
+        switch(operator) { 
             default:
             case "+":
                 result.real = n1.real + n2.real;

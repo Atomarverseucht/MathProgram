@@ -1,44 +1,47 @@
-//package MathProgramme;
+//package MathProgram;
 
 import java.util.Scanner;
 /**
- * Histogramm liest ganze Zahlen zwischen 1 und 6 ein und
- * gibt deren H&auml;ufigkeitsverteilung als Histogramm aus.
+ * Dieses Projekt soll komplexe Zahlen einlesen können und diese miteinander verrechnen
  * @author Atom
  * @author Guakocius
- * @version 01.11.2024
+ * @version 01.11.2024/2
  */
 public final class UserInface {
     private UserInface() { }
 
-
-    static String operator = "";
-
     private static final Scanner INPUT = new Scanner(System.in);
+    static String operator = "+";
     /**
      * main ist der Startpunkt des Programms.
      * @param args wird nicht verwendet.
      */
     public static void main(String[] args) {
         Number number = new Number(0,0);
+        int count = 1;
         // Scans in the user written complex numbers and the term operator
-        // to calculate them and print them out
-        System.out.println("\nKomplexe Zahlen: a + ib");
+        // to calculate them and print them out            
+        System.out.println("\nKomplexe Zahlen, werden wie folgt angegeben: a + ib");            
         System.out.println("Please enter in the real part of the first number: ");
-        number.real = INPUT.nextDouble();
-    	System.out.println("Please put the imaginary part: ");
-        number.imaginary = INPUT.nextDouble();
-        System.out.println("Please put in a term operator: ");
-        operator = INPUT.next();
-        Calculator.number.add(number);
-        Calculator.operator.add(operator);
+        while (INPUT.hasNext()) {
+            number.real = INPUT.nextDouble();
+    	    System.out.println("Please put the imaginary part: ");
+            number.imaginary = INPUT.nextDouble();
+            System.out.println("Please put in a term operator: ");
+            operator = INPUT.next();
+            Calculator.number.add(number);
+            Calculator.operator.add(operator);
+            ++count;
+            System.out.println("Please enter in the real part of the " + count + ". number: ");
+        }
 
         // TODO: Find an elegant way to display imaginary numbers because of i being a char
         // TODO and imaginary being a double, use i or a library which puts i into a complex
         // TODO: number or implement it ourselves.
-        // System.out.println("The result is: " + numbers[0].real + term + numbers[0].imaginary + "i");
-
-
-
+        count = 0;
+        for (Number value: Calculator.number) {
+            System.out.println(count + ". number: " + value.real + Calculator.operator.get(count) + value.imaginary + "i");
+            ++count;
+        }
     }
 }

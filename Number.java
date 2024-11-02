@@ -1,4 +1,4 @@
-public final class Number{
+public class Number{
 
     public double real = 0.0;
     public double imaginary = 0.0;
