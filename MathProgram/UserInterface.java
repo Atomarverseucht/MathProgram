@@ -27,6 +27,7 @@ public final class UserInterface {
         // to calculate them and print them out
         System.out.println("\nComplex Numbers: a + ib");
         System.out.println("Please enter in the real part of the first number: ");
+
         while (INPUT.hasNext()) {
             number.real = INPUT.nextDouble();
     	    System.out.println("Please put in the imaginary part: ");
@@ -34,14 +35,16 @@ public final class UserInterface {
             System.out.println("Please put in a term operator: ");
             operator = INPUT.next();
             Calculator.number.add(number);
-            Calculator.operator.add(operator);++count;
+            Calculator.operator.add(operator);
+            ++count;
             System.out.println("Please enter in the real part of the " + count + ". number: ");
         }
 
         // System.out.println("The result is: " + numbers[0].real + term + numbers[0].imaginary + "i");
         count = 0;
         for (Number value: Calculator.number) {
-            System.out.println(count + ". number: " + value.real +"+"+ value.imaginary + "i" + Calculator.operator.get(count));
+            System.out.println(count + ". number: " + value.real
+                    +"+"+ value.imaginary + "i" + Calculator.operator.get(count));
             ++count;
         }
     }
