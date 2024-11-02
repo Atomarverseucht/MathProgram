@@ -22,25 +22,33 @@ public final class UserInterface {
      */
     public static void main(String[] args) {
         int count = 1;
-        MathProgram.Number number = new Number(0,0);
+        MathProgram.Number number = new Number(0, 0);
 
         // Scans in the user written complex numbers and the term operator
         // to calculate them and print them out
         Calculator.operator.add("+");
-        System.out.println("\nComplex Numbers: a + ib \n End Input with wrong input for operators");
+        System.out.println("""
+                
+                Complex Numbers: a + ib\s
+                 \
+                End Input with wrong input for operators""");
         System.out.println("Please enter in the real part of the first number: ");
         while (INPUT.hasNext()) {
             number.real = UserInterface.inputDouble();
             System.out.println("Please put in the imaginary part: ");
             number.imaginary = UserInterface.inputDouble();
             System.out.println("Please put in a term operator: ");
-            operator = INPUT.next();afdsvgaavf
+            operator = INPUT.next();
+            Calculator.number.add(number);
+            Calculator.operator.add(operator);
             Calculator.real.add(number.real);
             Calculator.imaginary.add(number.imaginary);
-            if(!UserInterface.checkOperator(operator)){
+            if (!UserInterface.checkOperator(operator)) {
                 break;
             }
-            Calculator.operator.add(operator); ++count;
+
+            Calculator.operator.add(operator);
+            ++count;
             System.out.println("Please enter in the real part of the " + count + ". number: ");
         }
         number = Calculator.calculateTerm();
@@ -49,9 +57,10 @@ public final class UserInterface {
 
         // System.out.println("The result is: " + numbers[0].real + term + numbers[0].imaginary + "i");
         count = 0;
-        for (Double value: Calculator.real) {
-            System.out.println(Calculator.operator.get(count) + " (" + value +" + "+ Calculator.imaginary.get(count) + "i)");
-            ++count;
+            for (Double value : Calculator.real) {
+                System.out.println(Calculator.operator.get(count) +
+                        " (" + value + " + " + Calculator.imaginary.get(count) + "i)");
+                ++count;
         }
     }
 
@@ -77,3 +86,4 @@ public final class UserInterface {
         }
     }
 }
+
