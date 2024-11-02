@@ -25,24 +25,44 @@ public final class UserInterface {
 
         // Scans in the user written complex numbers and the term operator
         // to calculate them and print them out
-        System.out.println("\nComplex Numbers: a + ib");
+        Calculator.operator.add("+");
+        System.out.println("\nComplex Numbers: a + ib \n End Input with wrong input for operators");
         System.out.println("Please enter in the real part of the first number: ");
-        while (INPUT.hasNext()) {
+        while (INPUT.hasNextInt()) {
             number.real = INPUT.nextDouble();
     	    System.out.println("Please put in the imaginary part: ");
             number.imaginary = INPUT.nextDouble();
             System.out.println("Please put in a term operator: ");
             operator = INPUT.next();
-            Calculator.number.add(number);
-            Calculator.operator.add(operator);++count;
+            Calculator.real.add(number.real);
+            Calculator.imaginary.add(number.imaginary);
+            if(!UserInterface.checkOperator(operator)){
+                break;
+            }
+            
+            Calculator.operator.add(operator); ++count;
             System.out.println("Please enter in the real part of the " + count + ". number: ");
         }
+        number = Calculator.calculateTerm();
+
+        System.out.println(number.real + " + " + number.imaginary + "i");
 
         // System.out.println("The result is: " + numbers[0].real + term + numbers[0].imaginary + "i");
         count = 0;
-        for (Number value: Calculator.number) {
-            System.out.println(count + ". number: " + value.real +"+"+ value.imaginary + "i" + Calculator.operator.get(count));
+        for (Double value: Calculator.real) {
+            System.out.println(Calculator.operator.get(count) + " (" + value +" + "+ Calculator.imaginary.get(count) + "i)");
             ++count;
         }
+    }
+
+    static Boolean checkOperator(String operator){
+        String[] allowedOperators = new String[]{"+","-","*","/"};
+        Boolean allowed = false;
+        for (int i = 0; i < allowedOperators.length; i++) {
+            if(allowedOperators[i].equals(operator)){
+                allowed = true;
+            }
+        }
+        return allowed;
     }
 }
