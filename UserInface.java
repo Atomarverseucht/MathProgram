@@ -40,7 +40,7 @@ public final class UserInface {
         // TODO: number or implement it ourselves.
         count = 0;
         for (Number value: Calculator.number) {
-            System.out.println(count + ". number: " + value.real + Calculator.operator.get(count) + value.imaginary + "i");
+            System.out.println(count + ". number: " + value.real + value.imaginary + "i" + Calculator.operator.get(count));
             ++count;
         }
     }
