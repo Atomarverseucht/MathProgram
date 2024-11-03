@@ -3,7 +3,6 @@ package MathProgram;
 
 import java.util.Scanner;
 
-import javax.jws.soap.SOAPBinding.Use;
 
 /**
  * MathProgram should calculate mathematical terms (accepted complex numbers), today it's only showing the numbers in the cartesian form.
@@ -23,7 +22,6 @@ public final class UserInterface {
     public static void main(String[] args) {
         int count = 1;
         MathProgram.Number number = new Number(0, 0);
-
         // Scans in the user written complex numbers and the term operator
         // to calculate them and print them out
         Calculator.operator.add("+");
@@ -79,7 +77,7 @@ public final class UserInterface {
         try {
             Double _value = Double.parseDouble(value);
             return _value;
-            // Yes!  An integer.
+            // Yes!  An double.
         } catch (NumberFormatException nfe) {
             System.out.println("Please give me a double value (example: 0.0 or 0)");
             return inputDouble();// Not an integer
