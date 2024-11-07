@@ -116,5 +116,12 @@ public final class UserInterface {
             return inputDouble();// Not an integer
         }
     }
+
+    int f(int i){
+        if(i<=1){
+            return 1;
+        }
+        return i * f(i-1);
+    }
 }
 
