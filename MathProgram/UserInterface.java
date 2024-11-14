@@ -23,6 +23,7 @@ public final class UserInterface {
         int count = 1;
         boolean complex = false;
         MathProgram.Number number = new Number(0, 0);
+
         // Scans in the user written complex numbers and the term operator
         // to calculate them and print them out
         Calculator.operator.add("+");
@@ -49,21 +50,21 @@ public final class UserInterface {
                 if (!UserInterface.checkOperator(operator)) {
                     break;
                 }
-            Calculator.operator.add(operator);
-            ++count;
-            System.out.println("Please enter in the real part of the " + count + ". number: ");
-        }
+                Calculator.operator.add(operator);
+                ++count;
+                System.out.println("Please enter in the real part of the " + count + ". number: ");
+            }
         
-        number = Calculator.calculateTerm();
+            number = Calculator.calculateTerm();
 
-        System.out.println(number.real + " + " + number.imaginary + "i");
+            System.out.println(number.real + " + " + number.imaginary + "i");
 
-        // System.out.println("The result is: " + numbers[0].real + term + numbers[0].imaginary + "i");
-        count = 0;
-        for (Double value : Calculator.real) {
-            System.out.println(Calculator.operator.get(count) +
+            // System.out.println("The result is: " + numbers[0].real + term + numbers[0].imaginary + "i");
+            count = 0;
+            for (Double value : Calculator.real) {
+                System.out.println(Calculator.operator.get(count) +
                     " (" + value + " + " + Calculator.imaginary.get(count) + "i)");
-            ++count;
+                ++count;
             }
         } else{
             System.out.println("End Input with wrong input for operators"); 
@@ -86,42 +87,32 @@ public final class UserInterface {
 
         System.out.println("Solution: " + number.real + "\n Calculation:");
 
-        // System.out.println("The result is: " + numbers[0].real + term + numbers[0].imaginary + "i");
         count = 0;
         for (Double value : Calculator.real) {
             System.out.println(Calculator.operator.get(count) + value);
-          ++count;
+            ++count;
         }
     }     
 }
 
     static Boolean checkOperator(String operator){
-        String[] allowedOperators = new String[]{"+","-","*","/"};
-        Boolean allowed = false;
-        for (int i = 0; i < allowedOperators.length; i++) {
-            if(allowedOperators[i].equals(operator)){
-                allowed = true;
-            }
+        switch (operator) {
+            case "+","-","*","/":
+                return true;
+            default: 
+                return false;
         }
-        return allowed;
     }
     static Double inputDouble(){
         String value = INPUT.next();
         try {
             Double _value = Double.parseDouble(value);
             return _value;
-            // Yes!  An double.
+        
         } catch (NumberFormatException nfe) {
             System.out.println("Please give me a double value (example: 0.0 or 0)");
-            return inputDouble();// Not an integer
+            return inputDouble();
         }
-    }
-
-    int f(int i){
-        if(i<=1){
-            return 1;
-        }
-        return i * f(i-1);
     }
 }
 
